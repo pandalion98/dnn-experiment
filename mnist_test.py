@@ -1,10 +1,7 @@
 import numpy as np
 from keras.models import Sequential
-from keras.layers import Dense, LeakyReLU
-from keras.optimizers import SGD
+from keras.layers import Dense
 from keras.callbacks import ModelCheckpoint
-from matplotlib import pyplot as plt
-import matplotlib.cm as cm
 
 image_data = open('train-images.idx3-ubyte', 'rb')
 label_data = open('train-labels.idx1-ubyte', 'rb')
@@ -43,8 +40,8 @@ image_data.close()
 image_array = np.array(image_list)
 print("Image data loaded")
 
-#plt.imshow(image_array[0].reshape(28, 28))
-#plt.show()
+# plt.imshow(image_array[0].reshape(28, 28))
+# plt.show()
 
 # Model construction
 model = Sequential()
