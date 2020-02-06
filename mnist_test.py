@@ -2,6 +2,7 @@ import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.callbacks import ModelCheckpoint
+from matplotlib import pyplot
 
 image_data = open('train-images.idx3-ubyte', 'rb')
 label_data = open('train-labels.idx1-ubyte', 'rb')
@@ -59,4 +60,13 @@ filepath = "checkpoints/mnist-100b-relu-chkpt-{epoch:02d}-{acc:.5f}.h5"
 checkpoint = ModelCheckpoint(filepath, monitor='acc', verbose=1, save_best_only=True, mode='max')
 
 # Fit model!
-model.fit(x=image_array, y=label_array, batch_size=100, epochs=100, verbose=1, callbacks=[checkpoint])
+history = model.fit(x=image_array, y=label_array, batch_size=100, epochs=100, verbose=1, callbacks=[checkpoint])
+
+# Plot loss and accuracy
+pyplot.subplot(2, 1, 1)
+pyplot.title('Cross Entropy Loss')
+pyplot.plot(history.history['loss'], color='blue', label='train')
+pyplot.subplot(2, 1, 2)
+pyplot.title('Classification Accuracy')
+pyplot.plot(history.history['acc'], color='blue', label='train')
+pyplot.show()

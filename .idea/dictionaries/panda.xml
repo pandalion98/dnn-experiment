@@ -1,9 +1,13 @@
 <component name="ProjectDictionaryState">
   <dictionary name="panda">
     <words>
+      <w>conv</w>
       <w>dataset</w>
       <w>filepath</w>
       <w>mnist</w>
+      <w>relu</w>
+      <w>softmax</w>
+      <w>tensorboard</w>
     </words>
   </dictionary>
 </component>
